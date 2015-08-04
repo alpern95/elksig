@@ -1,8 +1,15 @@
 # elksig
-HEAD
-docker Elastic Logstash Kibana Sensu Influxdb Grafana docker datcontainer for influxdb, elastic docker nginx to proxyfy kibana grafana 
-sensu . docker slapd to nginx authent module.
-A docker like or inspired from https://github.com/Nuance-Mobility/Hera-Monitoring but with influxdb to replace graphite db.
+
+Ddockers: 
+Elastic Logstash Kibana Sensu Influxdb Grafana
+
+Docker datcontainer for influxdb, elastic
+Docker nginx to proxyfy kibana grafana Uchiwa.
+Docker slapd to use with nginx authent module.
+
+This docker composition is inspired from another existing (Hera-Monitoring) from nuance-mobility.
+
+https://github.com/Nuance-Mobility/Hera-Monitoring.
 
 ![Architecture](https://github.com/alpern95/elksig/blob/master/ELKSIG.png)
 
