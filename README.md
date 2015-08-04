@@ -21,4 +21,4 @@ Installation of docker and docker-compose
 - https://docs.docker.com/compose/install/
 
 sudo apt-get update
-sudo apt-get install wget ldap-utils
+sudo apt-get install wget curl ldap-utils
