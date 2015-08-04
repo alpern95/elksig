@@ -22,9 +22,29 @@ Installation of docker and docker-compose
 
 sudo apt-get update
 
-sudo apt-get install wget ldap-utils git
+sudo apt-get install wget curl ldap-utils git
 
 git clone https://github.com/alpern95/elksig.git
 
+## Installation docker datacontainer and slapd
+
 cd elksig
+cd influxdbdata
+docker build -t elksig/influxdbdata .
+cd ..
+cd elasticsearchdata/
+docker build -t elksig/elasticsearchdata .
+cd ..
+cd slapd/
+docker build -t elksig/slapd .
+cd ..
+
+## Lauch datacontainer
+
+docker-compose -f data-containers.yml up -d
+Setup ldap
+./setup-ldap-config.sh
+Test ldpa
+ldapsearch -h localhost -p 389 -xLLL -b "dc=example,dc=com" uid=admin sn givenName cn
+
 
