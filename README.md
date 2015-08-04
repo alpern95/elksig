@@ -31,7 +31,7 @@ git clone https://github.com/alpern95/elksig.git
 
 ## Installation docker datacontainer and slapd
 
-''' bash
+```
 cd elksig
 cd influxdbdata
 docker build -t elksig/influxdbdata .
@@ -42,7 +42,7 @@ cd ..
 cd slapd/
 docker build -t elksig/slapd .
 cd ..
-'''
+```
 
 ## Lauch datacontainer
 
