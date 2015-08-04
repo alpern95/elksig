@@ -1,0 +1,11 @@
+elasticsearchdata:
+  image: elksig/elasticsearchdata
+
+influxdbdata:
+  image: elksig/influxdbdata
+slapd:
+  build: ./slapd
+  volumes:
+    - /data/ldap:/var/lib/ldap
+  ports:
+    - "389:389"
