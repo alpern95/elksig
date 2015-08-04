@@ -23,11 +23,13 @@ Installation of docker and docker-compose
 
 ## utils and git
 
+```
 sudo apt-get update
 
 sudo apt-get install wget curl ldap-utils git
 
 git clone https://github.com/alpern95/elksig.git
+```
 
 ## Installation docker datacontainer and slapd
 
@@ -46,10 +48,14 @@ cd ..
 
 ## Lauch datacontainer
 
+```
 docker-compose -f data-containers.yml up -d
 Setup ldap
 ./setup-ldap-config.sh
-Test ldpa
-ldapsearch -h localhost -p 389 -xLLL -b "dc=example,dc=com" uid=admin sn givenName cn
+```
 
+## Test ldpa
+```
+ldapsearch -h localhost -p 389 -xLLL -b "dc=example,dc=com" uid=admin sn givenName cn
+```
 
