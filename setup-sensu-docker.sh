@@ -14,7 +14,7 @@ EOF
 }
 
 clean() {
-  rm -rf /usr/local/etc/sensu-docker
+  rm -rf /usr/local/etc/elksig
 }
 
 setup() {
@@ -52,7 +52,7 @@ generate_ssl() {
 }
 
 generate_environment() {
-  cat << EOF > /usr/local/etc/sensu-docker/sensu.env
+  cat << EOF > /usr/local/etc/elksig/sensu.env
 RABBITMQ_PASSWD=$(echo changeme)
 INFLUXDB_SENSU_PASSWD=$(echo changeme)
 INFLUXDB_GRAFANA_PASSWD=$(echo changeme)
