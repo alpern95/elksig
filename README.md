@@ -13,3 +13,12 @@ https://github.com/Nuance-Mobility/Hera-Monitoring.
 
 ![Architecture](https://github.com/alpern95/elksig/blob/master/ELKSIG.png)
 
+# Getting Started
+
+Installation of docker and docker-compose
+ 
+- https://docs.docker.com/installation/
+- https://docs.docker.com/compose/install/
+
+sudo apt-get update
+sudo apt-get install wget ldap-utils
