@@ -22,6 +22,12 @@ Installation of docker and docker-compose
 
 
 ## utils and git
+
 sudo apt-get update
+
 sudo apt-get install wget curl ldap-utils git
+
+git clone https://github.com/alpern95/elksig.git
+
+cd elksig
 
