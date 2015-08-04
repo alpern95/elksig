@@ -1,0 +1,27 @@
+# The root node (dc=example,dc=com) is automatically created by the Docker container instantiation (nickstenning/slapd).
+
+# All the users
+dn: ou=users,dc=example,dc=com
+objectclass: organizationalunit
+ou: users
+
+dn: uid=admin,ou=users,dc=example,dc=com
+objectclass: inetOrgPerson
+objectclass: person
+gn: administrator
+sn: Admin
+cn: administrator admin
+uid: admin
+userPassword: changeme
+
+
+# All the groups
+dn: ou=groups,dc=example,dc=com
+objectclass: organizationalunit
+ou: groups
+
+dn: cn=monitoring,ou=groups,dc=example,dc=com
+objectclass: groupofnames
+cn: monitoring
+description: All the monitoring users
+member: uid=admin,ou=users,dc=example,dc=com
