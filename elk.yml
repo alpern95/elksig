@@ -20,7 +20,7 @@ kibana:
 elasticsearch:
   build: elasticsearch
   volumes_from:
-   - sensudocker_elasticsearchdata_1
+   - elksig_elasticsearchdata_1
   volumes:
    - ./elasticsearch:/etc/elasticsearch
   ports: 
