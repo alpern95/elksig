@@ -1,0 +1,5 @@
+NGUSERNAME [a-zA-Z\.\@\-\+_%]+
+NGUSER %{NGUSERNAME}
+NGX_ACCESS_LOG %{IPORHOST:clientip} %{NGUSER:ident} %{NGUSER:auth} \[%{HTTPDATE:timestamp}\] "%{WORD:verb} %{URIPATHPARAM:request} HTTP/%{NUMBER:httpversion}" %{NUMBER:response} (?:%{NUMBER:bytes}|-) (?:"(?:%{URI:referrer}|-)"|%{QS:referrer}) %{QS:agent}
+NGX_ERR_DATE_TIME %{YEAR}/%{MONTHNUM}/%{MONTHDAY} %{TIME}
+NGX_ERR_LOG %{NGX_ERR_DATE_TIME:timestamp} \[%{LOGLEVEL}\] %{POSINT:pid}#%{NUMBER}: \*%{NUMBER} %{GREEDYDATA:msg}
