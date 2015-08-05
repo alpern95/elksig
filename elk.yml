@@ -17,6 +17,8 @@ kibana:
   links:
    - elasticsearch
   restart: always
+  ports:
+   - "5601:5601"
 elasticsearch:
   build: elasticsearch
   volumes_from:
