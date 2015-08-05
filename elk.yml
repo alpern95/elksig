@@ -1,0 +1,27 @@
+logstash:
+  build: logstash
+  volumes:
+   - ./logstash/conf.d:/etc/logstash/conf.d
+   - ./logstash/mib:/etc/logstash/mib
+   - ./logstash/ssl:/etc/pki/tls
+   - ./logstash/patterns:/etc/logstash/patterns
+  ports:
+   - "5001:5001"
+   - "514:514/udp"
+   - "62:62/udp"
+  links:
+   - elasticsearch
+  restart: always
+kibana:
+  build: kibana
+  links:
+   - elasticsearch
+  restart: always
+elasticsearch:
+  build: elasticsearch
+  volumes_from:
+   - sensudocker_elasticsearchdata_1
+  volumes:
+   - ./elasticsearch:/etc/elasticsearch
+  ports: 
+   - "9200:9200"
