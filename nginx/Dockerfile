@@ -26,7 +26,8 @@ RUN 		apt-get update -y && \
 			rm pcre-8.21.tar.gz && \
 			curl -O http://garr.dl.sourceforge.net/project/libpng/zlib/1.2.5/zlib-1.2.5.tar.gz && \
 			tar -xzf zlib-1.2.5.tar.gz && \
-			rm zlib-1.2.5.tar.gz && \
+			rm zlib-1.2.5.tar.gz
+RUN             apt-get update -y && \
 			git clone https://github.com/kvspb/nginx-auth-ldap.git && \
 			cd nginx_src && \
 			./configure \
