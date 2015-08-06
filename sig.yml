@@ -1,0 +1,43 @@
+rabbitmq:
+  extends:
+    file: common.yml
+    service: rabbitmq
+redis:
+  extends:
+    file: common.yml
+    service: redis
+  links:
+    - rabbitmq
+influxdb:
+  build: Influxdb
+  environment:
+    - INFLUXDB_ROOT_PASSWD=changeme
+    - INFLUXDB_SENSU_PASSWD=changeme
+    - INFLUXDB_GRAFANA_PASSWD=changeme
+  volumes_from:
+    - elksig_influxdbdata_1
+  ports:
+    - "8086:8086"
+    - "8083:8083"
+grafana:
+  build: Grafana
+  env_file:
+    - /usr/local/etc/elksig/sensu.env
+  volumes_from:
+    - elksig_influxdbdata_1
+  volumes:
+    - /usr/local/etc/elksig:/usr/local/etc/elksig
+    - /var/log/sensu:/var/log/sensu
+  links:
+    - rabbitmq
+    - influxdb
+  ports:
+    - "4000:3000"
+sensu:
+  extends:
+    file: common.yml
+    service: sensu
+  links:
+    - redis
+    - rabbitmq
+    - influxdb
