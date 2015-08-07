@@ -261,7 +261,7 @@ EOF
        "interface-RT-INFOG-3": {
          "type": "metric",
          "handlers": [ "influxdb" ],
-         "command": "/etc/sensu/plugins/snmp/snmp-if-metrics.rb -h 100.254.2.65 -C plf -e -n -s RT-INFOG-3",
+         "command": "/etc/sensu/plugins/snmp/snmp-if-metrics.rb -h 100.254.2.65 -C changeme -e -n -s RT-INFOG-3",
          "interval": 60,
          "source": "RT-INFOG-3",
          "subscribers": [ "reseau"]
@@ -269,7 +269,7 @@ EOF
         "interface-RT-INFOG-2": {
           "type": "metric",
           "handlers": [ "influxdb" ],
-          "command": "/etc/sensu/plugins/snmp/snmp-if-metrics.rb -h 100.254.2.67 -C plf -e -n -s RT-INFOG-2",
+          "command": "/etc/sensu/plugins/snmp/snmp-if-metrics.rb -h 100.254.2.67 -C changeme -e -n -s RT-INFOG-2",
           "interval": 60,
           "source": "RT-INFOG-2",
           "subscribers": [ "reseau"]
