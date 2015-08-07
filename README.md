@@ -39,7 +39,7 @@ git clone https://github.com/alpern95/elksig.git
 
 ```
 
-## Installation docker datacontainer and slapd
+## SETUP docker datacontainer and slapd
 
 ```
 cd elksig
@@ -54,8 +54,23 @@ Setup ldap
 ./setup-ldap-config.sh
 ```
 
-## Test ldpa
+## Test ldap
 ```
 ldapsearch -h localhost -p 389 -xLLL -b "dc=example,dc=com" uid=admin sn givenName cn
+```
+
+## SETUP ELK dockers containers
+```
+docker-compose -f elk.yml up 
+```
+
+## SETUP SIG dockers containers
+```
+docker-compose -f sig.yml up
+```
+
+## SETUP proxy dockers containers
+```
+docker-compose -f proxy.yml up
 ```
 

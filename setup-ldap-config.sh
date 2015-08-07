@@ -29,6 +29,6 @@ cn: monitoring
 description: All the monitoring users
 member: uid=admin,ou=users,dc=example,dc=com
 EOF
-  echo "Wrote out /usr/local/etc/sensu-docker/data.ldif"
+  echo "Wrote out /usr/local/etc/elksig/data.ldif"
 ldapadd -h localhost -p 389 -c -x -D cn=admin,dc=example,dc=com -W -f /usr/local/etc/elksig/data.ldif
 
