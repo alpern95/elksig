@@ -76,6 +76,7 @@ docker-compose -f sig.yml up
 
 ## SETUP proxy dockers containers
 ```
+./setup-nginx-config.sh
 docker-compose -f proxy.yml up
 ```
 
