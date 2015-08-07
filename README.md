@@ -59,6 +59,11 @@ Setup ldap
 ldapsearch -h localhost -p 389 -xLLL -b "dc=example,dc=com" uid=admin sn givenName cn
 ```
 
+## SETUP certificate and environments variables
+```
+./setup-sensu-docker.sh generate
+```
+
 ## SETUP ELK dockers containers
 ```
 docker-compose -f elk.yml up 
