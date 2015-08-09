@@ -27,8 +27,8 @@ http {
         binddn "cn=admin,dc=example,dc=com";
         binddn_passwd toor;
         group_attribute member;
-        group_attribute_is_dn on;
-        require group 'cn=monitoring,ou=groups,dc=example,dc=com';
+#        group_attribute_is_dn on;
+#        require group 'cn=monitoring,ou=groups,dc=example,dc=com';
         require valid_user;
         satisfy all;
       }
