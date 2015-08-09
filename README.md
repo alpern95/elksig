@@ -80,7 +80,9 @@ docker-compose -f sig.yml up
 docker-compose -f proxy.yml up
 ```
 
-# ON UBUNTU SERVER SENSU AND LOGSTASH FORWARDER
+# ON UBUNTU SERVER
+
+ SENSU, LOGSTASH FORWARDER, TELEGRAF
 
 ## SETUP SENSU CLIENT ON SERVER UBUNTU
 
