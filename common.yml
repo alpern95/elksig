@@ -3,7 +3,7 @@ rabbitmq:
   env_file:
     - /usr/local/etc/elksig/sensu.env
   volumes:
-    - /usr/local/etc/elksig:/usr/local/etc/sensu-docker
+    - /usr/local/etc/elksig:/usr/local/etc/elksig
     - /var/log/sensu:/var/log/sensu
   ports:
     - "5671:5671"
