@@ -90,7 +90,7 @@ https://localhost or ip address.
 
 ## SETUP SENSU CLIENT ON SERVER UBUNTU
 ```
-support/install_cleint.sh
+support/install_client.sh
 ```
 
 ## SETUP TELEGRAF ON SERVER UBUNTU
