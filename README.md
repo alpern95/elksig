@@ -1,6 +1,9 @@
 # elksig
 
-# NOT YET READY
+# NOT YET READY 
+Can be test, but some problem stay with influxdb database.
+
+# Partager en toute liberté
 
 Dockers:
  
