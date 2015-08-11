@@ -89,6 +89,9 @@ https://localhost or ip address.
  SENSU, LOGSTASH FORWARDER, TELEGRAF
 
 ## SETUP SENSU CLIENT ON SERVER UBUNTU
+```
+support/install_cleint.sh
+```
 
 ## SETUP TELEGRAF ON SERVER UBUNTU
 

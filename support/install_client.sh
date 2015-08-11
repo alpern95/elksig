@@ -51,7 +51,11 @@ EOF
 /opt/sensu/embedded/bin/gem install snmp
 cp support/snmp-if-metrics.rb /etc/sensu/plugins/snmp/snmp-if-metrics.rb
 
+echo "Launching sensu-client"
+/opt/sensu/embedded/bin/ruby /opt/sensu/bin/sensu-client -c /etc/sensu/elksig-config.json -d /etc/sensu -e /etc/sensu/extensions -v -l /var/log/sensu/elksig-client.log -b
+
 echo "Next steps are:"
+
 echo "  * Retrieve the RabbitMQ password from"
 echo "    /usr/local/etc/sensu-docker/sensu.env on the server."
 echo "  * modify /etc/sensu/config.json with your Sensu RabbitMQ host and password."
