@@ -101,5 +101,12 @@ support/install_client.sh
 ## SETUP LOGSTASH FORWARDER ON SERVER UBUNTU
 
 
+## REMARK
 
+InfluxDB v0.9.2 "admin dashboard 8083" has template query that dont match the good query
+
+for example this one:
+SHOW RETENTION POLICIES db_name 
+must be 
+SHOW RETENTION POLICIES ON db_name 
 
