@@ -101,6 +101,10 @@ support/install_client.sh
 ## SETUP LOGSTASH FORWARDER ON SERVER UBUNTU
 
 
+## SCREENSHOT
+
+![ELKSIG_Monitoring](https://github.com/alpern95/elksig/blob/master/Dash-Kibana4.png)
+
 ## REMARK
 
 InfluxDB v0.9.2 "admin dashboard 8083" has template query that dont match the good query
