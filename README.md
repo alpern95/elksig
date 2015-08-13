@@ -103,7 +103,13 @@ support/install_client.sh
 
 ## SCREENSHOT
 
+Kiban Screenshot
+
 ![ELKSIG_Monitoring](https://github.com/alpern95/elksig/blob/master/Dash-Kibana4.png)
+
+Grafana Screenshot
+
+![ELKSIG_Monitoring](https://github.com/alpern95/elksig/blob/master/Grafana-dashboard.png)
 
 ## REMARK
 
