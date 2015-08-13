@@ -109,7 +109,7 @@ Kiban Screenshot
 
 Grafana Screenshot
 
-![ELKSIG_Monitoring](https://github.com/alpern95/elksig/blob/master/Grafana-dashboard.png)
+![ELKSIG_Monitoring](https://github.com/alpern95/elksig/blob/master/Grafana.png)
 
 Uchiwa Sensu Screenshot
 
