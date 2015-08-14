@@ -49,6 +49,7 @@ cat << EOF > /etc/sensu/elksig-config.json
 EOF
 /opt/sensu/embedded/bin/gem install net-snmp
 /opt/sensu/embedded/bin/gem install snmp
+/opt/sensu/embedded/bin/gem install snmpscan
 cp support/snmp-if-metrics.rb /etc/sensu/plugins/snmp/snmp-if-metrics.rb
 
 echo "Launching sensu-client"
