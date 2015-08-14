@@ -75,6 +75,8 @@ docker-compose -f elk.yml up
 ## SETUP SIG dockers containers
 ```
 docker-compose -f sig.yml up
+Create the sensu database and user
+./setup-influxdb-database.sh
 ```
 
 ## SETUP proxy dockers containers
