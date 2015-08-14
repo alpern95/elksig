@@ -83,7 +83,7 @@ docker-compose -f sig.yml up
 docker-compose -f proxy.yml up
 ```
 
-# Connected on ELKSIG Webpage
+# Connect on ELKSIG Webpage
 https://localhost or ip address.
 ![ELKSIG_Monitoring](https://github.com/alpern95/elksig/blob/master/ELKSIG_Monitoring.png)
 
