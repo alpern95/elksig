@@ -51,7 +51,7 @@ EOF
 /opt/sensu/embedded/bin/gem install snmp
 /opt/sensu/embedded/bin/gem install snmpscan
 cp support/snmp-if-metrics.rb /etc/sensu/plugins/snmp/snmp-if-metrics.rb
-
+cp support/disk-capacity-metrics.rb /etc/sensu/plugins/snmp/system/disk-capacity-metrics.rb
 echo "Launching sensu-client"
 /opt/sensu/embedded/bin/ruby /opt/sensu/bin/sensu-client -c /etc/sensu/elksig-config.json -d /etc/sensu -e /etc/sensu/extensions -v -l /var/log/sensu/elksig-client.log -b
 

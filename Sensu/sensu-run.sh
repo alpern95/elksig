@@ -258,6 +258,13 @@ EOF
         "interval": 60,
         "subscribers": [ "default-metrics" ]
       },
+      "disk_capacity_metrics":{
+        "type": "metric",
+        "handlers": [ "influxdb" ],
+        "command": "/etc/sensu/plugins/system/disk-capacity-metrics.rb",
+        "interval": 60,
+        "subscribers": [ "default-metrics" ]
+      },
        "interface-RT-INFOG-3": {
          "type": "metric",
          "handlers": [ "influxdb" ],
