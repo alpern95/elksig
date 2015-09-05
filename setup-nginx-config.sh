@@ -15,8 +15,8 @@ http {
     default_type  application/octet-stream;
     sendfile        on;
     keepalive_timeout 65;
-    ssl_certificate     /etc/nginx/ssl/certs/docker-registry.crt;
-    ssl_certificate_key /etc/nginx/ssl/private/docker-registry.key;
+    ssl_certificate     /etc/ssl/docker/docker-registry.crt;
+    ssl_certificate_key /etc/ssl/docker/docker-registry.key;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4";
     ssl_prefer_server_ciphers on;
