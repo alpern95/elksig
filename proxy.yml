@@ -1,8 +1,10 @@
 monitoringproxy:
-  build: nginx
+  build: ./nginx
   volumes:
-   - ./nginx/config:/config
-   - ./nginx/html:/usr/share/nginx/html
-   - ./nginx/ssl:/etc/nginx/ssl
+   - ./nginx/html:/usr/share/nginx/html:ro
+   - ./nginx/ssl:/etc/ssl/docker:ro
+   - ./nginx/config/nginx.conf:/etc/nginx/nginx.conf
+   - ./nginx/logs:/usr/local/nginx/logs/
   ports:
    - "443:443"
+
