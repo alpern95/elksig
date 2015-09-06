@@ -4,7 +4,8 @@
 Can be test, but some problem stay with influxdb database.
 
 # Partager en toute liberté
-
+La documentation en français sur mon Web.
+http://alpern.hd.free.fr/doc/2015/09/01/ElKSIG-Documentation/
 Dockers:
  
 Elastic Logstash Kibana Sensu Influxdb Grafana
