@@ -15,7 +15,7 @@ ln -sf /opt/sensu/embedded/bin/ruby /usr/bin/ruby
 /opt/sensu/embedded/bin/gem install redphone --no-rdoc --no-ri
 /opt/sensu/embedded/bin/gem install mail --no-rdoc --no-ri --version 2.5.4
 /opt/sensu/embedded/bin/gem install bunny --no-rdoc --no-ri
-
+/opt/sensu/embedded/bin/gem install net-ping --no-rdoc --no-ri
 rm -rf /etc/sensu/plugins /tmp/sensu_plugins
 git clone https://github.com/sensu/sensu-community-plugins.git /tmp/sensu_plugins
 
