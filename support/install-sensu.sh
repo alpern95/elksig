@@ -52,8 +52,7 @@ EOF
 cp support/snmp-if-metrics.rb /etc/sensu/plugins/snmp/snmp-if-metrics.rb
 
 echo "Launching sensu-client"
-/opt/sensu/embedded/bin/ruby /opt/sensu/bin/sensu-client -c /etc/sensu/elksig-config.json -d /etc/sensu -e /etc/sensu/extensions -v -l /var/log/sensu
-/elksig-client.log -b
+/opt/sensu/embedded/bin/ruby /opt/sensu/bin/sensu-client -c /etc/sensu/elksig-config.json -d /etc/sensu -e /etc/sensu/extensions -v -l /var/log/sensu/elksig-client.log -b
 
 echo "Next steps are:"
 
