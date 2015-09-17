@@ -4,12 +4,13 @@ MAINTAINER Feng Honglin <hfeng@tutum.co>
 RUN apt-get update && apt-get install -y wget curl git-core supervisor
 RUN apt-get clean
 # Install InfluxDB
-ENV INFLUXDB_VERSION 0.9.2
+ENV INFLUXDB_VERSION 0.9.4
 RUN curl -s -o /tmp/influxdb_latest_amd64.deb https://s3.amazonaws.com/influxdb/influxdb_${INFLUXDB_VERSION}_amd64.deb && \
   dpkg -i /tmp/influxdb_latest_amd64.deb && \
   rm /tmp/influxdb_latest_amd64.deb && \
   rm -rf /var/lib/apt/lists/*
 
+RUN /opt/influxdb/influxd config > influxdb.generated.conf
 ADD config.toml /config/config.toml
 ADD run.sh /run.sh
 RUN chmod +x /*.sh
