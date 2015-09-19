@@ -1,36 +1,48 @@
-FROM ubuntu:14.04
+FROM java:8-jre
 
-ENV DEBIAN_FRONTEND noninteractive
+# grab gosu for easy step-down from root
+RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
+RUN arch="$(dpkg --print-architecture)" \
+	&& set -x \
+	&& curl -o /usr/local/bin/gosu -fSL "https://github.com/tianon/gosu/releases/download/1.3/gosu-$arch" \
+	&& curl -o /usr/local/bin/gosu.asc -fSL "https://github.com/tianon/gosu/releases/download/1.3/gosu-$arch.asc" \
+	&& gpg --verify /usr/local/bin/gosu.asc \
+	&& rm /usr/local/bin/gosu.asc \
+	&& chmod +x /usr/local/bin/gosu
 
-# Usual update / upgrade
-RUN apt-get update && apt-get upgrade -q -y && apt-get dist-upgrade -q -y
+RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 46095ACC8548582C1A2699A9D27D666CD88E42B4
 
-# Let our containers upgrade themselves
-RUN apt-get install -q -y unattended-upgrades
+ENV ELASTICSEARCH_MAJOR 2.0
+ENV ELASTICSEARCH_VERSION 2.0.0~beta2
 
-# Install usual tools
-RUN apt-get install -q -y wget vim
+RUN echo "deb http://packages.elasticsearch.org/elasticsearch/$ELASTICSEARCH_MAJOR/debian stable main" > /etc/apt/sources.list.d/elasticsearch.list
 
-# Install Java... eurk
-RUN apt-get install -q -y openjdk-7-jre-headless
+RUN set -x \
+	&& apt-get update \
+	&& apt-get install -y --no-install-recommends elasticsearch=$ELASTICSEARCH_VERSION \
+	&& rm -rf /var/lib/apt/lists/*
 
-RUN wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add - && \
-	echo "deb http://packages.elasticsearch.org/elasticsearch/1.5/debian stable main" | tee -a /etc/apt/sources.list.d/elasticsearch.list && \
-	apt-get update && apt-get install elasticsearch && \
-	mkdir -p /usr/share/elasticsearch/config && \
-    ln -s /etc/elasticsearch/elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml && \
-    ln -s /etc/elasticsearch/logging.yml /usr/share/elasticsearch/config/logging.yml
+ENV PATH /usr/share/elasticsearch/bin:$PATH
 
-#VOLUME ["/var/lib/elasticsearch"]
-VOLUME ["data"]
-VOLUME          /etc/elasticsearch
-VOLUME          /usr/share/elasticsearch/data
+RUN set -ex \
+	&& for path in \
+		/usr/share/elasticsearch/data \
+		/usr/share/elasticsearch/logs \
+		/usr/share/elasticsearch/config \
+		/usr/share/elasticsearch/config/scripts \
+	; do \
+		mkdir -p "$path"; \
+		chown -R elasticsearch:elasticsearch "$path"; \
+	done
 
-ADD elasticsearch.default /etc/default/elasticsearch
-ADD elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
+COPY config/logging.yml /usr/share/elasticsearch/config/
 
-EXPOSE 9200
+VOLUME /usr/share/elasticsearch/data
 
-RUN /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
+COPY docker-entrypoint.sh /
 
-ENTRYPOINT ["/usr/share/elasticsearch/bin/elasticsearch"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+EXPOSE 9200 9300
+
+CMD ["elasticsearch"]
