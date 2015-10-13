@@ -44,8 +44,12 @@ http {
             proxy_pass http://$HOSTIPNAME:4000/;
         }
 
-        location /kibana/ {
-            proxy_pass http://$HOSTIPNAME:5601/;
+        location ~ /app/kibana(?<section>.*) {
+          proxy_pass http://$HOSTIPNAME:5601/app/kibana$section;
+          proxy_set_header Host $host;
+        }
+        location /api/ {
+          proxy_pass http://$HOSTIPNAME:5601/;
         }
 
         location /uchiwa/ {
