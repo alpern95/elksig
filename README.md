@@ -2,7 +2,8 @@
 
 ![logo](https://github.com/alpern95/elksig/blob/master/elksig-logo.png)
 # NOT YET READY 
-Can be test, but some problem stay with influxdb database.
+Working now, must be tested for increase.
+(Can be test, but some problem stay with influxdb database.)
 
 # Partager en toute liberté
 La documentation en français sur mon Web.
