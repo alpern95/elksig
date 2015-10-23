@@ -152,10 +152,10 @@ class SNMPIfStatsGraphite < Sensu::Plugin::Metric::CLI::Graphite
         output "#{config[:scheme]}.#{if_name}.ifSpeed", row['ifSpeed'].value if config[:include_speed]
 
         if config[:include_error_metrics]
-          output "#{if_name}"'_ifIn_Errors,'"source=#{config[:scheme]},interface=#{if_name}", row['ifInErrors'].value
-          output "#{if_name}"'_ifOut_Errors,'"source=#{config[:scheme]},interface=#{if_name}", row['ifOutErrors'].value
-          output "#{if_name}"'_ifInDiscards,'"source=#{config[:scheme]},interface=#{if_name}", row['ifInDiscards'].value
-          output "#{if_name}"'_ifOutDiscards,'"source=#{config[:scheme]},interface=#{if_name}", row['ifOutDiscards'].value
+          output "#{if_name}"'_ifIn_Errors,'"source=#{config[:scheme]},interface=#{if_name}", row['ifInErrors'].value if row['ifInErrors'].value.to_s != 'noSuchInstance'
+          output "#{if_name}"'_ifOut_Errors,'"source=#{config[:scheme]},interface=#{if_name}", row['ifOutErrors'].value  if row['ifOutErrors'].value.to_s != 'noSuchInstance'
+          output "#{if_name}"'_ifInDiscards,'"source=#{config[:scheme]},interface=#{if_name}", row['ifInDiscards'].value if row['ifInDiscards'].value.to_s != 'noSuchInstance'
+          output "#{if_name}"'_ifOutDiscards,'"source=#{config[:scheme]},interface=#{if_name}", row['ifOutDiscards'].value  if row['ifOutDiscards'].value.to_s != 'noSuchInstance'
         end
 
         if config[:include_pkt_metrics]
