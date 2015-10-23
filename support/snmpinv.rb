@@ -24,8 +24,7 @@ $ligne = "ent_physical_desc,ent_physical_serial_number\n"
 
 SNMP::Manager.open(:Host => ARGV.first, :Community => ARGV[1]) do |mgr|
   mgr.walk(columns) do |row|
-    unless serials.include?(row[0].value.to_s) || row[1].value.to_s.downcase == 
-'unknown'
+    unless serials.include?(row[0].value.to_s) || row[1].value.to_s.downcase == 'unknown'
       if row[1].value.to_s == ""
        else
         $ligne << "#{row[0].value.to_s},#{row[1].value.to_s}""\n"
@@ -35,8 +34,7 @@ SNMP::Manager.open(:Host => ARGV.first, :Community => ARGV[1]) do |mgr|
   end
 end
 if $ligne
-  SortieFile = File.new(directory+fichier+"_"+jour.to_s+"-"+mois.to_s+"-"+annee.
-to_s+".log", "w")
+  SortieFile = File.new(directory+fichier+"_"+jour.to_s+"-"+mois.to_s+"-"+annee.to_s+".log", "w")
   SortieFile.puts($ligne)
   SortieFile.close
   else
