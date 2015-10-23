@@ -1,7 +1,7 @@
 reporting-disabled = false
 
 [meta]
-  dir = "/root/.influxdb/meta"
+  dir = "/data/meta"
   hostname = "localhost"
   bind-address = ":8088"
   retention-autocreate = true
@@ -12,17 +12,25 @@ reporting-disabled = false
   cluster-tracing = false
 
 [data]
-  dir = "/root/.influxdb/data"
+  dir = "/data"
+  engine = "bz1"
   max-wal-size = 104857600
   wal-flush-interval = "10m0s"
   wal-partition-flush-delay = "2s"
-  wal-dir = "/root/.influxdb/wal"
+  wal-dir = "/data/wal"
   wal-logging-enabled = true
   wal-ready-series-size = 30720
   wal-compaction-threshold = 0.5
   wal-max-series-size = 1048576
   wal-flush-cold-interval = "5s"
-  wal-partition-size-threshold = 20971520
+  wal-partition-size-threshold = 52428800
+  wal-flush-memory-size-threshold = 5242880
+  wal-max-memory-size-threshold = 104857600
+  index-compaction-age = 60000000000
+  index-min-compaction-interval = 60000000000
+  index-compaction-min-file-count = 5
+  index-compaction-full-age = 300000000000
+  query-log-enabled = true
 
 [cluster]
   force-remote-mapping = false
@@ -92,10 +100,9 @@ reporting-disabled = false
 
 [hinted-handoff]
   enabled = true
-  dir = "/root/.influxdb/hh"
+  dir = "/data/hh"
   max-size = 1073741824
   max-age = "168h0m0s"
   retry-rate-limit = 0
   retry-interval = "1s"
-
-
+  retry-max-interval = "1m0s"
