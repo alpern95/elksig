@@ -1,5 +1,5 @@
 rabbitmq:
-  build: ./RabbitMQ
+  build: RabbitMQ
   env_file:
     - /usr/local/etc/elksig/sensu.env
   volumes:
@@ -8,7 +8,7 @@ rabbitmq:
   ports:
     - "5671:5671"
 redis:
-  build: ./Redis
+  build: Redis
   env_file:
     - /usr/local/etc/elksig/sensu.env
   volumes:
@@ -17,7 +17,7 @@ redis:
   expose:
     - "6379"
 sensu:
-  build: ./Sensu
+  build: Sensu
   env_file:
     - /usr/local/etc/elksig/sensu.env
   environment:
