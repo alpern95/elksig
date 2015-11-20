@@ -1,10 +1,10 @@
 elasticsearchdata:
-  image: elksig/elasticsearchdata
+  build: elasticsearchdata
 
 influxdbdata:
-  image: elksig/influxdbdata
+  build: influxdbdata
 slapd:
-  build: ./slapd
+  build: slapd
   volumes:
     - /data/ldap:/var/lib/ldap
   ports:
