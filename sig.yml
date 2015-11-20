@@ -1,11 +1,21 @@
 rabbitmq:
-  extends:
-    file: common.yml
-    service: rabbitmq
+  build: RabbitMQ
+  env_file:
+     - sensu.env
+  volumes:
+    - /usr/local/etc/elksig:/usr/local/etc/elksig
+    - /var/log/sensu:/var/log/sensu
+  ports:
+    - "5671:5671"
 redis:
-  extends:
-    file: common.yml
-    service: redis
+  build: Redis
+  env_file:
+    - sensu.env
+  volumes:
+    - /usr/local/etc/elksig:/usr/local/etc/elksig
+    - /var/log/sensu:/var/log/sensu
+  expose:
+    - "6379"
   links:
     - rabbitmq
 influxdb:
@@ -26,9 +36,17 @@ grafana:
   ports:
     - "4000:3000"
 sensu:
-  extends:
-    file: common.yml
-    service: sensu
+  build: Sensu
+  env_file:
+    - sensu.env
+  environment:
+    - SENSU_METRICS=false
+  volumes:
+    - /usr/local/etc/elksig:/usr/local/etc/elksig
+    - /var/log/sensu:/var/log/sensu
+    - /etc/sensu/conf.d:/etc/sensu/conf.d
+  ports:
+    - "3000:3000"
   links:
     - redis
     - rabbitmq
