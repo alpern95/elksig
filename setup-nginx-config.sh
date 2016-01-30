@@ -1,6 +1,6 @@
 #!/bin/sh
 #Variable for local host
-HOSTIPNAME=$(ip a show dev eth0 | grep inet | grep eth0 | sed -e 's/^.*inet.//g' -e 's/\/.*$//g')
+HOSTIPNAME=$(ip a show dev enp2s0 | grep inet | grep enp2s0 | sed -e 's/^.*inet.//g' -e 's/\/.*$//g')
 cat << EOF > nginx/config/nginx.conf
 worker_processes  1;
 
@@ -44,9 +44,9 @@ http {
             proxy_pass http://$HOSTIPNAME:4000/;
         }
 
-        location ~ /app/kibana(?<section>.*) {
-          proxy_pass http://$HOSTIPNAME:5601/app/kibana$section;
-          proxy_set_header Host $host;
+        location /app/kibana {
+          proxy_pass http://$HOSTIPNAME:5601/app/kibana;
+#          proxy_set_header Host $host;
         }
         location /api/ {
           proxy_pass http://$HOSTIPNAME:5601/;

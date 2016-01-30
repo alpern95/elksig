@@ -9,8 +9,9 @@ ADD ./conf.d/logstash-forwarder.crt /etc/logstash/logstash-forwarder.crt
 ADD ./conf.d/logstash-forwarder.key /etc/logstash/logstash-forwarder.key
 RUN mkdir /etc/logstash/patterns
 ADD ./patterns/nginx /etc/logstash/patterns/nginx
-ENV LOGSTASH_VERSION 2.0.0
-RUN curl -s "https://download.elastic.co/logstash/logstash/logstash-${LOGSTASH_VERSION}.tar.gz" | \
+ENV LOGSTASH_VERSION 2.1.0
+#RUN curl -s "https://download.elastic.co/logstash/logstash/logstash-${LOGSTASH_VERSION}.tar.gz" | \
+RUN curl -s "https://download.elastic.co/logstash/logstash/logstash-all-plugins-${LOGSTASH_VERSION}.tar.gz" | \
     tar xz -C /opt && \
     mv "/opt/logstash-${LOGSTASH_VERSION}" /opt/logstash
 

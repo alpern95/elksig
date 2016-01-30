@@ -25,7 +25,7 @@ find /etc/sensu/plugins/ -name *.rb -exec chmod +x {} \;
 mkdir -p /etc/sensu/ssl
 
 echo "Configuration sensu client"
-HOSTIPNAME=$(ip a show dev eth0 | grep inet | grep eth0 | sed -e 's/^.*inet.//g' -e 's/\/.*$//g')
+HOSTIPNAME=$(ip a show dev enp2s0 | grep inet | grep enp2s0 | sed -e 's/^.*inet.//g' -e 's/\/.*$//g')
 RABBITMQ_PASSWD=changeme
 cat << EOF > /etc/sensu/elksig-config.json
 {

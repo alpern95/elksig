@@ -2,7 +2,7 @@ FROM debian:wheezy
 
 MAINTAINER Henrik Sachse <t3x7m3@posteo.de>
 
-ENV NGINX_VERSION release-1.7.12
+ENV NGINX_VERSION release-1.9.6
 
 RUN apt-get update \
 	&& apt-get install -y \
